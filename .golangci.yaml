@@ -3,9 +3,12 @@ linters:
 
 issues:
   exclude-rules:
-  - path: _test\.go
-    linters:
-    - funlen
-    - gomnd
-    - gocognit
-    - scopelint
+    - path: _test\.go
+      linters:
+        - funlen
+        - gomnd
+        - gocognit
+        - scopelint
+    - path: doc_test\.go
+      linters:
+        - lll

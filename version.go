@@ -7,10 +7,10 @@ import (
 
 // Version represent the go version information.
 type Version struct {
-	Major int    `json:"major"`
-	Minor int    `json:"minor"`
-	Patch int    `json:"patch,omitempty"`
-	Pre   string `json:"prerelease,omitempty"`
+	Major int    `json:"major"`                // Major version number
+	Minor int    `json:"minor"`                // Minor version number
+	Patch int    `json:"patch,omitempty"`      // Patch version number
+	Pre   string `json:"prerelease,omitempty"` // Pre release version identifier
 }
 
 // Clone returns a deep copy of instance.
@@ -37,12 +37,15 @@ func (v *Version) String() string {
 }
 
 // BuildTag returns go build tag string.
+//
+// See also: https://golang.org/pkg/go/build/#hdr-Build_Constraints
 func (v *Version) BuildTag() string {
 	return fmt.Sprintf("go%d.%d", v.Major, v.Minor)
 }
 
 // ReleaseTags returns release build tags.
-// see https://golang.org/pkg/go/build/#Context
+//
+// See also: https://golang.org/pkg/go/build/#Context
 func (v *Version) ReleaseTags() []string {
 	res := make([]string, 0, v.Minor)
 
