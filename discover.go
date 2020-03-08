@@ -21,6 +21,12 @@ var mu sync.Mutex
 // nolint: gochecknoglobals
 var cache *Version
 
+// execCmd returns go command execute results.
+// nolint: gochecknoglobals
+var execCmd = func() ([]byte, error) {
+	return exec.Command("go", "version").Output()
+}
+
 // Discover returns version instance from go command execute result.
 // Execution results are cached and reused.
 func Discover() (*Version, error) {
@@ -41,7 +47,7 @@ func Discover() (*Version, error) {
 
 // discover returns version instance from go command execute result.
 func discover() (*Version, error) {
-	out, err := exec.Command("go", "version").Output()
+	out, err := execCmd()
 	if err != nil {
 		return nil, err
 	}

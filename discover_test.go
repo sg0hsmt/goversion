@@ -1,6 +1,7 @@
 package goversion_test
 
 import (
+	"errors"
 	"go/build"
 	"reflect"
 	"runtime"
@@ -31,6 +32,13 @@ func TestDiscover(t *testing.T) {
 		first = res
 	})
 
+	var testErr = errors.New("test for execution failure")
+
+	// replace internal function
+	goversion.SetExecCmd(func() ([]byte, error) {
+		return nil, testErr // always error
+	})
+
 	t.Run("second call (get from cache)", func(t *testing.T) {
 		res, err := goversion.Discover()
 		if err != nil {
@@ -39,6 +47,16 @@ func TestDiscover(t *testing.T) {
 
 		if !first.Equal(res) {
 			t.Errorf("second is not equal first, first %#v, second %#v", first, res)
+		}
+	})
+
+	// clear internal cache
+	goversion.ResetCache()
+
+	t.Run("third call (from go command)", func(t *testing.T) {
+		_, err := goversion.Discover()
+		if err != testErr {
+			t.Errorf("unmatch error, want %v, got %v", testErr, err)
 		}
 	})
 }
