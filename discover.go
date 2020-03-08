@@ -1,7 +1,7 @@
 package goversion
 
 import (
-	"fmt"
+	"errors"
 	"os/exec"
 	"regexp"
 	"strconv"
@@ -10,10 +10,10 @@ import (
 )
 
 // ErrDevelopVersion develop version is not supported.
-var ErrDevelopVersion = fmt.Errorf("develop version is not supported")
+var ErrDevelopVersion = errors.New("develop version is not supported")
 
 // ErrVersionSyntax version syntax parse failed.
-var ErrVersionSyntax = fmt.Errorf("version syntax parse failed")
+var ErrVersionSyntax = errors.New("version syntax parse failed")
 
 // nolint: gochecknoglobals
 var mu sync.Mutex
