@@ -6,8 +6,9 @@ issues:
     - path: _test\.go
       linters:
         - funlen
-        - gomnd
         - gocognit
+        - goerr113
+        - gomnd
         - scopelint
     - path: doc_test\.go
       linters:
