@@ -32,7 +32,7 @@ func TestDiscover(t *testing.T) {
 		first = res
 	})
 
-	var testErr = errors.New("test for execution failure")
+	testErr := errors.New("test for execution failure")
 
 	// replace internal function
 	goversion.SetExecCmd(func() ([]byte, error) {
