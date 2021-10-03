@@ -1,15 +1,27 @@
 linters:
   enable-all: true
+  disable:
+    - exhaustivestruct
+    - paralleltest
+    # deprecated
+    - golint
+    - maligned
+    - interfacer
+    - scopelint
+    # error wrap
+    - errorlint
+    - goerr113
+    - wrapcheck
 
+linters-settings:
+  govet:
+    check-shadowing: true
+  gofumpt:
+    extra-rules: true
 issues:
   exclude-rules:
     - path: _test\.go
       linters:
+        - cyclop
         - funlen
         - gocognit
-        - goerr113
-        - gomnd
-        - scopelint
-    - path: doc_test\.go
-      linters:
-        - lll

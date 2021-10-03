@@ -153,11 +153,13 @@ func TestParse(t *testing.T) {
 
 			if err == nil && v.err != nil {
 				t.Errorf("parse is success, want %v", v.err)
+
 				return
 			}
 
 			if err != nil && v.err == nil {
 				t.Errorf("parse is failed, got %v", err)
+
 				return
 			}
 
@@ -168,6 +170,7 @@ func TestParse(t *testing.T) {
 				if err != v.err {
 					t.Errorf("unmatch error, want %v, got %v", v.err, err)
 				}
+
 				return
 			}
 
