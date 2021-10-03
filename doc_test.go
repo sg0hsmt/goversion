@@ -10,6 +10,7 @@ func Example() {
 	ver, err := goversion.Discover()
 	if err != nil {
 		fmt.Printf("discover failed: %v", err)
+
 		return
 	}
 
