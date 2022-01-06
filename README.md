@@ -1,6 +1,6 @@
 # goversion
 
-[![GoDoc](https://godoc.org/github.com/sg0hsmt/goversion?status.svg)](https://godoc.org/github.com/sg0hsmt/goversion)
+[![Go Reference](https://pkg.go.dev/badge/github.com/sg0hsmt/goversion.svg)](https://pkg.go.dev/github.com/sg0hsmt/goversion)
 [![Test](https://github.com/sg0hsmt/goversion/workflows/Test/badge.svg)](https://github.com/sg0hsmt/goversion/actions)
 [![Go Report Card](https://goreportcard.com/badge/github.com/sg0hsmt/goversion)](https://goreportcard.com/report/github.com/sg0hsmt/goversion)
 [![codecov](https://codecov.io/gh/sg0hsmt/goversion/branch/master/graph/badge.svg)](https://codecov.io/gh/sg0hsmt/goversion)
@@ -8,6 +8,10 @@
 [![Release](https://img.shields.io/github/release/sg0hsmt/goversion.svg)](https://github.com/sg0hsmt/goversion/releases/latest)
 
 `goversion` is a package that gets the go version from the go command.
+
+## Requirements
+
+Go 1.11 or later
 
 ## How to use
 
@@ -38,6 +42,18 @@ func main() {
 		fmt.Printf("pre: %q\n", ver.Pre)
 	}
 }
+```
+
+## Test
+
+```console
+go test .
+```
+
+You can use GitHub Actions locally by [act](https://github.com/nektos/act).
+
+```console
+act -j test
 ```
 
 ## Limitations
