@@ -3,6 +3,7 @@ linters:
   disable:
     - exhaustivestruct
     - paralleltest
+    - varnamelen
     # deprecated
     - golint
     - maligned
@@ -25,3 +26,7 @@ issues:
         - cyclop
         - funlen
         - gocognit
+    - path: doc_test\.go
+      linters:
+        - gocritic
+      text: "dupArg:"
