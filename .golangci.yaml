@@ -24,6 +24,7 @@ issues:
     - path: _test\.go
       linters:
         - cyclop
+        - exhaustruct
         - funlen
         - gocognit
     - path: doc_test\.go
