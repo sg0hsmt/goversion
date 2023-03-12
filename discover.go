@@ -15,14 +15,15 @@ var ErrDevelopVersion = errors.New("develop version is not supported")
 // ErrVersionSyntax version syntax parse failed.
 var ErrVersionSyntax = errors.New("version syntax parse failed")
 
-// nolint: gochecknoglobals
+//nolint:gochecknoglobals
 var mu sync.Mutex
 
-// nolint: gochecknoglobals
+//nolint:gochecknoglobals
 var cache *Version
 
 // execCmd returns go command execute results.
-// nolint: gochecknoglobals
+//
+//nolint:gochecknoglobals
 var execCmd = func() ([]byte, error) {
 	return exec.Command("go", "version").Output()
 }
