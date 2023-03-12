@@ -5,10 +5,15 @@ linters:
     - paralleltest
     - varnamelen
     # deprecated
+    - deadcode
     - golint
-    - maligned
+    - ifshort
     - interfacer
+    - maligned
+    - nosnakecase
     - scopelint
+    - structcheck
+    - varcheck
     # error wrap
     - errorlint
     - goerr113
