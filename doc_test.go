@@ -6,6 +6,7 @@ import (
 	"github.com/sg0hsmt/goversion"
 )
 
+//nolint:testableexamples
 func Example() {
 	ver, err := goversion.Discover()
 	if err != nil {
