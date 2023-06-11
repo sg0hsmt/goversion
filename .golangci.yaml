@@ -1,11 +1,11 @@
 linters:
   enable-all: true
   disable:
-    - exhaustivestruct
     - paralleltest
     - varnamelen
     # deprecated
     - deadcode
+    - exhaustivestruct
     - golint
     - ifshort
     - interfacer
@@ -20,6 +20,20 @@ linters:
     - wrapcheck
 
 linters-settings:
+  depguard:
+    rules:
+      main:
+        files:
+          - $all
+          - "!$test"
+        allow:
+          - $gostd
+      test:
+        files:
+          - $test
+        allow:
+          - $gostd
+          - github.com/sg0hsmt/goversion
   govet:
     check-shadowing: true
   gofumpt:
